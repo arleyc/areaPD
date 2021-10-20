@@ -30,8 +30,6 @@ devtools::install_github("arleyc/areaPD")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(areaPD)
 #PD calculation for a set of areas and a given phylogeny
@@ -67,8 +65,8 @@ latiPD<-multiareaPD(latidata,latitree)
 <img src="man/figures/README-example1-4.png" width="100%" />
 
 ``` r
-#complementary PD calculation for a set of areas given a phylogeny and
-#a selected area (LCL)
+#complementary PD calculation for a set of areas given a phylogeny 
+# (in red) and a selected area (LCL, in green)
 homoPDcomp<-compareaPD(homodata,homotree,LCL)
 ```
 

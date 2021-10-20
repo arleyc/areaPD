@@ -33,10 +33,15 @@ set of areas.
 #different phylogenetic trees
 data("homodata")
 data("homotree")
-homoPD<-compareaPD(homodata,homotree)
-#'different phylogenetic trees
+homoPD<-multiareaPD(homodata,homotree)
 data("limnodata")
 data("limnotree")
-limnoPD<-makeVennPD(limnodata,limnotree)
-vennout<-makeVennPD(list(homoPD,limnoPD))
+limnoPD<-multiareaPD(limnodata,limnotree)
+data("contodata")
+data("contotree")
+contoPD<-multiareaPD(contodata,contotree)
+data("latidata")
+data("latitree")
+latiPD<-multiareaPD(latidata,latitree)
+vennout<-makeVennPD(list(homoPD,limnoPD,contoPD,latiPD))
 }
