@@ -23,4 +23,5 @@ Imports:
     VennDiagram,
     imager,
     picante
-
+Depends: 
+    R (>= 2.10)
