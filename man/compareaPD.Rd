@@ -15,8 +15,24 @@ compareaPD(x, phy, area)
 of the other areas in the set}
 }
 \value{
-
+A plot showing the branches used for calculating the complementary PD of
+a given area (in red) and the branches representing the PD of the selected
+area (in green). The complementary PD value is given in the title of each
+plot.
 }
 \description{
 compareaPD
+}
+\details{
+compareaPD calculates the complementary phylogenetic diversity of an area
+given another selected area from the set. It also plots the input tree
+showing the branches used for calculating the complementary PD of a given
+area (in red) and the branches representing the PD of the selected area.
+}
+\examples{
+#complementary PD calculation for a set of areas given a phylogeny and
+#a selected area
+data("homodata")
+data("homotree")
+homoPD<-compareaPD(homodata,homotree,LCL)
 }

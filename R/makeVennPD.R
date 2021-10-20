@@ -3,10 +3,35 @@
 #' @param x list of vectors containing phylogenetic diversity values within
 #' and between areas produced by multiareaPD
 #'
+#' @details
+#' makeVennPD uses the function VennDiagram::draw.quintuple.venn to draw
+#' a Venn's diagram showing total PD values for each area in a set, the
+#' PD exclusive of an area (endemism PD), and PD values for all intersections
+#' between different combinations of areas, based on the PD values obtained
+#' from separate multiareaPD analyses each representing a different phylogeny
+#' of codistributed taxa (e.g., alleles, species, etc.) across the same
+#' set of areas.
+
 #' @return
+#' An object of class “vector” containing the phylogenetic diversity
+#' values for each area and for all combinations of areas, and a plot
+#' of the Venn's diagram representing the combination of the input
+#' trees and set of areas.
+#'
 #' @export
 #'
 #' @examples
+#'#drawing a Venn's diagram for a set of five areas given two
+#'#different phylogenetic trees
+#'data("homodata")
+#'data("homotree")
+#'homoPD<-compareaPD(homodata,homotree)
+#'#'different phylogenetic trees
+#'data("limnodata")
+#'data("limnotree")
+#'limnoPD<-makeVennPD(limnodata,limnotree)
+#'vennout<-makeVennPD(list(homoPD,limnoPD))
+
 makeVennPD <- function(x) {
 
   ## check dependencies

@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "arley.camargo@gmail.com",
            comment = c(ORCID = "0000-0001-9082-6348"))
-Description: The package areaPD containts three functions for calculating
+Description: The package areaPD contains functions for calculating
   phylogenetic diversity (PD) for a set of geographic areas, calculating
   complementarity PD given a selected area, and constructing a Venn's 
   diagram of PD within and between areas, given a phylogenetic tree and 

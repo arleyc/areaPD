@@ -5,10 +5,27 @@
 #' @param area name of selected area to measure complementary phylogenetic diversity
 #' of the other areas in the set
 #'
+#' @details
+#' compareaPD calculates the complementary phylogenetic diversity of an area
+#' given another selected area from the set. It also plots the input tree
+#' showing the branches used for calculating the complementary PD of a given
+#' area (in red) and the branches representing the PD of the selected area.
+#'
 #' @return
+#' A plot showing the branches used for calculating the complementary PD of
+#' a given area (in red) and the branches representing the PD of the selected
+#' area (in green). The complementary PD value is given in the title of each
+#' plot.
+#'
 #' @export
 #'
 #' @examples
+#'#complementary PD calculation for a set of areas given a phylogeny and
+#'#a selected area
+#'data("homodata")
+#'data("homotree")
+#'homoPD<-compareaPD(homodata,homotree,LCL)
+
 compareaPD <- function(x, phy, area) {
 
   # all tips

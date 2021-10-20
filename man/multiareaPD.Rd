@@ -12,8 +12,21 @@ multiareaPD(x, phy)
 \item{phy}{phylogenetic tree of class phylo}
 }
 \value{
-
+An object of class “vector” containing the phylogenetic diversity
+values for each area and for all combinations of areas.
 }
 \description{
 multiareaPD
+}
+\details{
+multiareaPD uses the function picante::pd to calculate phylogenetic diversity
+for a set of areas. It also plots the input tree showing the branches used
+for calculating the PD of a given area.
+}
+\examples{
+#PD calculation for a set of areas and a given phylogeny
+data("homodata")
+data("homotree")
+homoPD<-multiareaPD(homodata,homotree)
+
 }
