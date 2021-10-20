@@ -1,16 +1,28 @@
+#' makeVennPD
+#'
+#' @param x list of vectors containing phylogenetic diversity values within
+#' and between areas produced by multiareaPD
+#'
+#' @return
+#' @export
+#'
+#' @examples
 makeVennPD <- function(x) {
 
   ## check dependencies
 
   requireNamespace("VennDiagram", quietly = TRUE)
   requireNamespace("imager", quietly = TRUE)
+  requireNamespace("png", quietly = TRUE)
+  requireNamespace("grid", quietly = TRUE)
+  requireNamespace("grDevices", quietly = TRUE)
 
   # sum PD values for all species across areas
   PDvals <- x[[1]] + x[[2]] + x[[3]] + x[[4]]
 
   # create, save, and plot Venn's diagram
   # make Venn object without plotting
-  vennfig<-draw.quintuple.venn(PDvals[1],PDvals[2],PDvals[3],PDvals[4],PDvals[5],PDvals[6],
+  vennfig<-VennDiagram::draw.quintuple.venn(PDvals[1],PDvals[2],PDvals[3],PDvals[4],PDvals[5],PDvals[6],
                                PDvals[7],PDvals[8],PDvals[9],PDvals[10],PDvals[11],PDvals[12],PDvals[13],PDvals[14],
                                PDvals[15],PDvals[16],PDvals[17],PDvals[18],PDvals[19],PDvals[20],PDvals[21],PDvals[22],
                                PDvals[23],PDvals[24],PDvals[25],PDvals[26],PDvals[27],PDvals[18],PDvals[29],PDvals[30],
@@ -23,12 +35,10 @@ makeVennPD <- function(x) {
                                cat.cex = 1.5, cat.fontface = "bold", margin = 0.05, ind=F)
 
   # save Venn plot as jpeg file
-  jpeg(filename = "multi_Venn_diagram.jpeg")
-  grid.draw(vennfig)
-  dev.off()
-
-  library(imager)
-  im<-load.image("multi_Venn_diagram.jpeg")
+  png::jpeg(filename = "multi_Venn_diagram.jpeg")
+  grid::grid.draw(vennfig)
+  grDevices::dev.off()
+  im<-imager::load.image("multi_Venn_diagram.jpeg")
   graphics::par(mfrow=c(1,1),mar=c(1, 1, 1, 1))
   plot(im,axes=FALSE)
 

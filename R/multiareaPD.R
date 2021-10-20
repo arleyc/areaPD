@@ -1,3 +1,13 @@
+#' multiareaPD
+#'
+#' @param x dataframe containing the assignment of samples (rows) to areas (columns)
+#' @param phy phylogenetic tree of class phylo
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
 multiareaPD <- function(x, phy) {
 
   # check dependencies
@@ -5,6 +15,10 @@ multiareaPD <- function(x, phy) {
   requireNamespace("picante", quietly = TRUE)
   requireNamespace("VennDiagram", quietly = TRUE)
   requireNamespace("imager", quietly = TRUE)
+  requireNamespace("graphics", quietly = TRUE)
+  requireNamespace("png", quietly = TRUE)
+  requireNamespace("grDevices", quietly = TRUE)
+  requireNamespace("grid", quietly = TRUE)
 
   # calculate area PD
   x <- x[1:5,]
@@ -93,7 +107,7 @@ multiareaPD <- function(x, phy) {
 
     # plot tree with painted terminal branches
     plot(phy,edge.color=edgecols,edge.width =3, use.edge.length=T)
-    title(main=paste("PD Area",rownames(x[i,]),"=",PDvals[i,1]))
+    graphics::title(main=paste("PD Area",rownames(x[i,]),"=",PDvals[i,1]))
   }
 
   # create, save, and plot Venn's diagram
@@ -138,7 +152,7 @@ multiareaPD <- function(x, phy) {
     n235 - n245 - n345 + n1234 + n1235 + n1245 + n1345 + n2345
 
   # make Venn object without plotting
-  vennfig<-draw.quintuple.venn(area1,area2,area3,area4,area5,n12,n13,n14,n15,n23,n24,n25,n34
+  vennfig<-VennDiagram::draw.quintuple.venn(area1,area2,area3,area4,area5,n12,n13,n14,n15,n23,n24,n25,n34
                                ,n35,n45,n123,n124,n125,n134,n135,n145,n234,n235,n245,n345,n1234,n1235,n1245,n1345,
                                n2345,n12345,
                                category=c("TGC","LCL","TCS","TCO","TQS"),
@@ -149,10 +163,9 @@ multiareaPD <- function(x, phy) {
                                cat.cex = 1.5, cat.fontface = "bold", margin = 0.05, ind=F)
 
   # save Venn plot as jpeg file
-  jpeg(filename = "Venn_diagram.jpeg")
-  grid.draw(vennfig)
-  dev.off()
-
+  png::jpeg(filename = "Venn_diagram.jpeg")
+  grid::grid.draw(vennfig)
+  grDevices::dev.off()
   im<-imager::load.image("Venn_diagram.jpeg")
   graphics::par(mar=c(1, 1, 1, 1))
   plot(im,axes=FALSE)

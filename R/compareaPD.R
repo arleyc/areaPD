@@ -1,3 +1,14 @@
+#' compareaPD
+#'
+#' @param x dataframe containing the assignment of samples (rows) to areas (columns)
+#' @param phy phylogenetic tree of class phylo
+#' @param area name of selected area to measure complementary phylogenetic diversity
+#' of the other areas in the set
+#'
+#' @return
+#' @export
+#'
+#' @examples
 compareaPD <- function(x, phy, area) {
 
   # all tips
@@ -69,7 +80,7 @@ compareaPD <- function(x, phy, area) {
 
     # plot tree with painted terminal branches
     plot(phy,edge.color=edgecols,edge.width=3, use.edge.length=F)
-    title(main=paste("Comp. PD Area",names(compPDpath[i]),"=",sum(phy$edge.length[compPDpath[[i]]])))
+    graphics::title(main=paste("Comp. PD Area",names(compPDpath[i]),"=",sum(phy$edge.length[compPDpath[[i]]])))
   }
 
 
