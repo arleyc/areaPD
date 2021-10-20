@@ -16,7 +16,6 @@ multiareaPD <- function(x, phy) {
   requireNamespace("VennDiagram", quietly = TRUE)
   requireNamespace("imager", quietly = TRUE)
   requireNamespace("graphics", quietly = TRUE)
-  requireNamespace("png", quietly = TRUE)
   requireNamespace("grDevices", quietly = TRUE)
   requireNamespace("grid", quietly = TRUE)
 
@@ -163,7 +162,7 @@ multiareaPD <- function(x, phy) {
                                cat.cex = 1.5, cat.fontface = "bold", margin = 0.05, ind=F)
 
   # save Venn plot as jpeg file
-  png::jpeg(filename = "Venn_diagram.jpeg")
+  grDevices::jpeg(filename = "Venn_diagram.jpeg")
   grid::grid.draw(vennfig)
   grDevices::dev.off()
   im<-imager::load.image("Venn_diagram.jpeg")

@@ -13,7 +13,6 @@ makeVennPD <- function(x) {
 
   requireNamespace("VennDiagram", quietly = TRUE)
   requireNamespace("imager", quietly = TRUE)
-  requireNamespace("png", quietly = TRUE)
   requireNamespace("grid", quietly = TRUE)
   requireNamespace("grDevices", quietly = TRUE)
 
@@ -35,7 +34,7 @@ makeVennPD <- function(x) {
                                cat.cex = 1.5, cat.fontface = "bold", margin = 0.05, ind=F)
 
   # save Venn plot as jpeg file
-  png::jpeg(filename = "multi_Venn_diagram.jpeg")
+  grDevices::jpeg(filename = "multi_Venn_diagram.jpeg")
   grid::grid.draw(vennfig)
   grDevices::dev.off()
   im<-imager::load.image("multi_Venn_diagram.jpeg")
