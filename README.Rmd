@@ -67,7 +67,7 @@ latiPDcomp<-compareaPD(latidata,latitree,LCL)
 ```
 
 ```{r example3}
-#drawing a Venn's diagram for a set of five areas given two
+#drawing a Venn's diagram for a set of five areas given four
 #different phylogenetic trees
 vennout<-makeVennPD(list(homoPD,limnoPD,contoPD,latiPD))
 ```
