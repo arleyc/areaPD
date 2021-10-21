@@ -10,6 +10,7 @@
 #' given another selected area from the set. It also plots the input tree
 #' showing the branches used for calculating the complementary PD of a given
 #' area (in red) and the branches representing the PD of the selected area.
+#' Currently, the function is implemented to deal with five areas only.
 #'
 #' @return
 #' A plot showing the branches used for calculating the complementary PD of

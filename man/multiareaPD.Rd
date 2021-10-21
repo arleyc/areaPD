@@ -20,8 +20,10 @@ multiareaPD
 }
 \details{
 multiareaPD uses the function picante::pd to calculate phylogenetic diversity
-for a set of areas. It also plots the input tree showing the branches used
-for calculating the PD of a given area.
+for a set of areas. It plots the input tree showing the branches used
+for calculating the PD of a given area.It also plots a Venn's
+diagram based on shared patterns of PD among areas. Currently,
+the function is implemented to deal with five areas only.
 }
 \examples{
 #PD calculation for a set of areas and a given phylogeny

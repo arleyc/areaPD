@@ -26,7 +26,8 @@ PD exclusive of an area (endemism PD), and PD values for all intersections
 between different combinations of areas, based on the PD values obtained
 from separate multiareaPD analyses each representing a different phylogeny
 of codistributed taxa (e.g., alleles, species, etc.) across the same
-set of areas.
+set of areas. Currently, the function is implemented to deal with five
+areas only.
 }
 \examples{
 #drawing a Venn's diagram for a set of five areas given two
