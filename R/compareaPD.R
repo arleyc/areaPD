@@ -29,6 +29,11 @@
 
 compareaPD <- function(x, phy, area) {
 
+  ## check dependencies
+
+  requireNamespace("graphics", quietly = TRUE)
+  requireNamespace("ape", quietly = TRUE)
+
   # all tips
   x <- x[1:5,]
   tips<-colnames(x)
@@ -97,7 +102,7 @@ compareaPD <- function(x, phy, area) {
     edgecols[PDpath[[deparse(substitute(area))]]]<-c("green")
 
     # plot tree with painted terminal branches
-    plot(phy,edge.color=edgecols,edge.width=3, use.edge.length=F)
+    ape::plot.phylo(phy,edge.color=edgecols,edge.width=3, use.edge.length=F)
     graphics::title(main=paste("Comp. PD Area",names(compPDpath[i]),"=",sum(phy$edge.length[compPDpath[[i]]])))
   }
 

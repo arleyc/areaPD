@@ -22,6 +22,7 @@ Imports:
     grDevices,
     VennDiagram,
     imager,
-    picante
+    picante,
+    ape
 Depends: 
     R (>= 2.10)

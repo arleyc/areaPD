@@ -33,6 +33,7 @@ multiareaPD <- function(x, phy) {
   requireNamespace("graphics", quietly = TRUE)
   requireNamespace("grDevices", quietly = TRUE)
   requireNamespace("grid", quietly = TRUE)
+  requireNamespace("ape", quietly = TRUE)
 
   # calculate area PD
   x <- x[1:5,]
@@ -120,7 +121,7 @@ multiareaPD <- function(x, phy) {
     edgecols[PDpath[[i]]]<-c("red")
 
     # plot tree with painted terminal branches
-    plot(phy,edge.color=edgecols,edge.width =3, use.edge.length=T)
+    ape::plot.phylo(phy,edge.color=edgecols,edge.width =3, use.edge.length=T)
     graphics::title(main=paste("PD Area",rownames(x[i,]),"=",PDvals[i,1]))
   }
 
