@@ -23,7 +23,7 @@
 #'homoPD<-multiareaPD(homodata,homotree)
 #'
 
-multiareaPD <- function(x, phy, plot=F) {
+multiareaPD <- function(x, phy, plot=T) {
 
   # check dependencies
 
@@ -35,39 +35,49 @@ multiareaPD <- function(x, phy, plot=F) {
   requireNamespace("grid", quietly = TRUE)
   requireNamespace("ape", quietly = TRUE)
 
+  # from phylo to multyphylo
+  if (class(phy)=="phylo") {
+    phy<-list(phy)
+    class(phy)<-"multiPhylo"
+  }
+
+  if (length(phy)>1) {
+    plot=F
+  }
+
   # calculate area PD
   x <- x[1:5,]
 
   results<-c()
 
   for (i in 1:length(phy)) {
-    PDvals <- picante::pd(x,phy[i])
-    PD12 <- picante::pd(x[1,]+x[2,],phy[i])
-    PD13 <- picante::pd(x[1,]+x[3,],phy[i])
-    PD14 <- picante::pd(x[1,]+x[4,],phy[i])
-    PD15 <- picante::pd(x[1,]+x[5,],phy[i])
-    PD23 <- picante::pd(x[2,]+x[3,],phy[i])
-    PD24 <- picante::pd(x[2,]+x[4,],phy[i])
-    PD25 <- picante::pd(x[2,]+x[5,],phy[i])
-    PD34 <- picante::pd(x[3,]+x[4,],phy[i])
-    PD35 <- picante::pd(x[3,]+x[5,],phy[i])
-    PD45 <- picante::pd(x[4,]+x[5,],phy[i])
-    PD123 <- picante::pd(x[1,]+x[2,]+x[3,],phy[i])
-    PD124 <- picante::pd(x[1,]+x[2,]+x[4,],phy[i])
-    PD125 <- picante::pd(x[1,]+x[2,]+x[5,],phy[i])
-    PD134 <- picante::pd(x[1,]+x[3,]+x[4,],phy[i])
-    PD135 <- picante::pd(x[1,]+x[3,]+x[5,],phy[i])
-    PD145 <- picante::pd(x[1,]+x[4,]+x[5,],phy[i])
-    PD234 <- picante::pd(x[2,]+x[3,]+x[4,],phy[i])
-    PD235 <- picante::pd(x[2,]+x[3,]+x[5,],phy[i])
-    PD245 <- picante::pd(x[2,]+x[4,]+x[5,],phy[i])
-    PD345 <- picante::pd(x[3,]+x[4,]+x[5,],phy[i])
-    PD1234 <- picante::pd(x[1,]+x[2,]+x[3,]+x[4,],phy[i])
-    PD1235 <- picante::pd(x[1,]+x[2,]+x[3,]+x[5,],phy[i])
-    PD1245 <- picante::pd(x[1,]+x[2,]+x[4,]+x[5,],phy[i])
-    PD1345 <- picante::pd(x[1,]+x[3,]+x[4,]+x[5,],phy[i])
-    PD2345 <- picante::pd(x[2,]+x[3,]+x[4,]+x[5,],phy[i])
-    PD12345 <- picante::pd(x[1,]+x[2,]+x[3,]+x[4,]+x[5,],phy[i])
+    PDvals <- picante::pd(x,phy[[i]])
+    PD12 <- picante::pd(x[1,]+x[2,],phy[[i]])
+    PD13 <- picante::pd(x[1,]+x[3,],phy[[i]])
+    PD14 <- picante::pd(x[1,]+x[4,],phy[[i]])
+    PD15 <- picante::pd(x[1,]+x[5,],phy[[i]])
+    PD23 <- picante::pd(x[2,]+x[3,],phy[[i]])
+    PD24 <- picante::pd(x[2,]+x[4,],phy[[i]])
+    PD25 <- picante::pd(x[2,]+x[5,],phy[[i]])
+    PD34 <- picante::pd(x[3,]+x[4,],phy[[i]])
+    PD35 <- picante::pd(x[3,]+x[5,],phy[[i]])
+    PD45 <- picante::pd(x[4,]+x[5,],phy[[i]])
+    PD123 <- picante::pd(x[1,]+x[2,]+x[3,],phy[[i]])
+    PD124 <- picante::pd(x[1,]+x[2,]+x[4,],phy[[i]])
+    PD125 <- picante::pd(x[1,]+x[2,]+x[5,],phy[[i]])
+    PD134 <- picante::pd(x[1,]+x[3,]+x[4,],phy[[i]])
+    PD135 <- picante::pd(x[1,]+x[3,]+x[5,],phy[[i]])
+    PD145 <- picante::pd(x[1,]+x[4,]+x[5,],phy[[i]])
+    PD234 <- picante::pd(x[2,]+x[3,]+x[4,],phy[[i]])
+    PD235 <- picante::pd(x[2,]+x[3,]+x[5,],phy[[i]])
+    PD245 <- picante::pd(x[2,]+x[4,]+x[5,],phy[[i]])
+    PD345 <- picante::pd(x[3,]+x[4,]+x[5,],phy[[i]])
+    PD1234 <- picante::pd(x[1,]+x[2,]+x[3,]+x[4,],phy[[i]])
+    PD1235 <- picante::pd(x[1,]+x[2,]+x[3,]+x[5,],phy[[i]])
+    PD1245 <- picante::pd(x[1,]+x[2,]+x[4,]+x[5,],phy[[i]])
+    PD1345 <- picante::pd(x[1,]+x[3,]+x[4,]+x[5,],phy[[i]])
+    PD2345 <- picante::pd(x[2,]+x[3,]+x[4,]+x[5,],phy[[i]])
+    PD12345 <- picante::pd(x[1,]+x[2,]+x[3,]+x[4,]+x[5,],phy[[i]])
 
     # find the tips for the area
     tips<-colnames(x)
@@ -78,17 +88,17 @@ multiareaPD <- function(x, phy, plot=F) {
       areatips<-tips[x[j,]>0]
 
       # find label number for area tips
-      mytips<-match(areatips,phy[i]$tip.label)
+      mytips<-match(areatips,phy[[i]]$tip.label)
 
       # find edges corresponding to tips
-      myedges<-match(mytips,phy[i]$edge[,2])
+      myedges<-match(mytips,phy[[i]]$edge[,2])
 
       # when there is a single tip
       if (length(myedges)==1) {
-        newedge<-c(1:dim(phy[i]$edge)[1])[phy[i]$edge[myedges,][1]==phy[i]$edge[,2]]
+        newedge<-c(1:dim(phy[[i]]$edge)[1])[phy[[i]]$edge[myedges,][1]==phy[[i]]$edge[,2]]
         while (length(newedge)==1) {
           myedges<-c(myedges,newedge)
-          newedge<-c(1:dim(phy[i]$edge)[1])[phy[i]$edge[newedge,][1]==phy[i]$edge[,2]]
+          newedge<-c(1:dim(phy[[i]]$edge)[1])[phy[[i]]$edge[newedge,][1]==phy[[i]]$edge[,2]]
         }
       }
 
@@ -96,7 +106,7 @@ multiareaPD <- function(x, phy, plot=F) {
       if (length(myedges)>1){
 
         # find ancestral edges to paint path to root
-        newedges<-match(phy[i]$edge[myedges,][,1],phy[i]$edge[,2])
+        newedges<-match(phy[[i]]$edge[myedges,][,1],phy[[i]]$edge[,2])
         newedges <- newedges[!is.na(newedges)]
 
         # add ancestral edges to the list of edges to paint
@@ -105,7 +115,7 @@ multiareaPD <- function(x, phy, plot=F) {
         # repeat finding more ancestral edges and re-paint
         while (length(newedges)>1) {
           myedges<-c(myedges,newedges)
-          newedges<-match(phy[i]$edge[newedges,][,1],phy[i]$edge[,2])
+          newedges<-match(phy[[i]]$edge[newedges,][,1],phy[[i]]$edge[,2])
           newedges <- newedges[!is.na(newedges)]
         }
       }
@@ -121,13 +131,13 @@ multiareaPD <- function(x, phy, plot=F) {
     for (i in 1:dim(x)[1]) {
 
       # create vector of edge colors
-      edgecols<-rep("black",dim(phy$edge)[1])
+      edgecols<-rep("black",dim(phy[[1]]$edge)[1])
 
       # change colors of myedges
       edgecols[PDpath[[i]]]<-c("red")
 
       # plot tree with painted terminal branches
-      ape::plot.phylo(phy,edge.color=edgecols,edge.width =3, use.edge.length=T)
+      ape::plot.phylo(phy[[1]],edge.color=edgecols,edge.width =3, use.edge.length=T)
       graphics::title(main=paste("PD Area",rownames(x[i,]),"=",PDvals[i,1]))
     }
   }
@@ -199,6 +209,7 @@ multiareaPD <- function(x, phy, plot=F) {
 
   }
 
+  colnames(results)<-c("area1","area2","area3","area4","area5","n12","n13","n14","n15","n23","n24","n25","n34","n35","n45","n123","n124","n125","n134","n135","n145","n234","n235","n245","n345","n1234","n1235","n1245","n1345","n2345","n12345")
   return(results)
 
 }

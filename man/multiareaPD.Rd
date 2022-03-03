@@ -4,7 +4,7 @@
 \alias{multiareaPD}
 \title{multiareaPD}
 \usage{
-multiareaPD(x, phy)
+multiareaPD(x, phy, plot = F)
 }
 \arguments{
 \item{x}{dataframe containing the assignment of samples (rows) to areas (columns)}
