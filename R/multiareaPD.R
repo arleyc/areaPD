@@ -1,18 +1,18 @@
 #' multiareaPD
 #'
 #' @param x dataframe containing the assignment of samples (rows) to areas (columns)
-#' @param phy phylogenetic tree of class phylo
+#' @param phy phylogenetic tree(s) of class phylo or multiPhylo
 #'
 #' @details
 #' multiareaPD uses the function picante::pd to calculate phylogenetic diversity
-#' for a set of areas. It plots the input tree showing the branches used
-#' for calculating the PD of a given area.It also plots a Venn's
-#' diagram based on shared patterns of PD among areas. Currently,
+#' for a set of areas. When there is a single input tree, the function plots the
+#' branches used for calculating the PD of a given area in red color. It also
+#' plots a Venn's diagram based on shared patterns of PD among areas. Currently,
 #' the function is implemented to deal with five areas only.
 #'
 #' @return
-#' An object of class “vector” containing the phylogenetic diversity
-#' values for each area and for all combinations of areas.
+#' An object of class “vector” or "matrix" containing the phylogenetic diversity
+#' values for each area and for all combinations of areas given all input trees.
 #'
 #' @export
 #'
@@ -46,7 +46,6 @@ multiareaPD <- function(x, phy, plot=T) {
   }
 
   # calculate area PD
-  x <- x[1:5,]
 
   results<-c()
 
