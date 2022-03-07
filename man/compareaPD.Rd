@@ -4,17 +4,20 @@
 \alias{compareaPD}
 \title{compareaPD}
 \usage{
-compareaPD(x, phy, area)
+compareaPD(x, phy, area, plot = T)
 }
 \arguments{
 \item{x}{dataframe containing the assignment of samples (rows) to areas (columns)}
 
-\item{phy}{phylogenetic tree of class phylo}
+\item{phy}{phylogenetic tree(s) of class phylo or multiPhylo}
 
 \item{area}{name of selected area to measure complementary phylogenetic diversity
 of the other areas in the set}
 }
 \value{
+An object of class “vector” or "matrix" containing the complementary phylogenetic
+diversity values for each area and for all combinations of areas given all input
+trees.
 A plot showing the branches used for calculating the complementary PD of
 a given area (in red) and the branches representing the PD of the selected
 area (in green). The complementary PD value is given in the title of each
@@ -24,11 +27,11 @@ plot.
 compareaPD
 }
 \details{
-compareaPD calculates the complementary phylogenetic diversity of an area
-given another selected area from the set. It also plots the input tree
-showing the branches used for calculating the complementary PD of a given
-area (in red) and the branches representing the PD of the selected area.
-Currently, the function is implemented to deal with five areas only.
+compareaPD calculates the complementary phylogenetic diversity of an area given a
+selected area from the set. When there is a single input tree, the function plots
+the branches used for calculating the complementary PD of a given area (in red)
+and the branches representing the PD of the selected area (in green). Currently,
+the function is implemented to deal with five areas only.
 }
 \examples{
 #complementary PD calculation for a set of areas given a phylogeny and
