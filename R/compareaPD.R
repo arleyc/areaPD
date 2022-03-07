@@ -4,6 +4,8 @@
 #' @param phy phylogenetic tree(s) of class phylo or multiPhylo
 #' @param area name of selected area to measure complementary phylogenetic diversity
 #' of the other areas in the set
+#' @param plot logical value indicating whether to plot the input tree. Defaults to
+#' plot = TRUE unless more than one input tree is provided.
 #'
 #' @details
 #' compareaPD calculates the complementary phylogenetic diversity of an area given a
@@ -28,7 +30,7 @@
 #' #a selected area
 #' data("homodata")
 #' data("homotree")
-#' homoPD<-compareaPD(homodata,homotree,LCL)
+#' homoPD<-compareaPD(homodata[1:5,],homotree,LCL)
 
 compareaPD <- function(x, phy, area, plot=T) {
 

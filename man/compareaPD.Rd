@@ -13,6 +13,9 @@ compareaPD(x, phy, area, plot = T)
 
 \item{area}{name of selected area to measure complementary phylogenetic diversity
 of the other areas in the set}
+
+\item{plot}{logical value indicating whether to plot the input tree. Defaults to
+plot = TRUE unless more than one input tree is provided.}
 }
 \value{
 An object of class “vector” or "matrix" containing the complementary phylogenetic
@@ -38,5 +41,5 @@ the function is implemented to deal with five areas only.
 #a selected area
 data("homodata")
 data("homotree")
-homoPD<-compareaPD(homodata,homotree,LCL)
+homoPD<-compareaPD(homodata[1:5,],homotree,LCL)
 }

@@ -2,6 +2,8 @@
 #'
 #' @param x dataframe containing the assignment of samples (rows) to areas (columns)
 #' @param phy phylogenetic tree(s) of class phylo or multiPhylo
+#' @param plot logical value indicating whether to plot the input tree. Defaults to
+#' plot = TRUE unless more than one input tree is provided.
 #'
 #' @details
 #' multiareaPD uses the function picante::pd to calculate phylogenetic diversity

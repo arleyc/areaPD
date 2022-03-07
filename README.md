@@ -9,8 +9,8 @@
 The goal of areaPD is to calculate phylogenetic diversity (PD) for a set
 of geographic areas, calculating complementarity PD given a selected
 area, and constructing a Venn’s diagram of PD within and between areas,
-given a phylogenetic tree and an assignment of samples (e.g., alleles,
-species, etc.) to areas.
+given one or more phylogenetic trees and an assignment of samples (e.g.,
+alleles, species, etc.) to areas.
 
 ## Installation
 
@@ -29,7 +29,7 @@ library(areaPD)
 #PD calculation for a set of areas and a given phylogeny
 data("homodata")
 data("homotree")
-homoPD<-multiareaPD(homodata,homotree)
+homoPD<-multiareaPD(homodata[1:5,],homotree)
 ```
 
 <img src="man/figures/README-example1-1.png" width="100%" />
@@ -37,7 +37,7 @@ homoPD<-multiareaPD(homodata,homotree)
 ``` r
 data("limnodata")
 data("limnotree")
-limnoPD<-multiareaPD(limnodata,limnotree)
+limnoPD<-multiareaPD(limnodata[1:5,],limnotree)
 ```
 
 <img src="man/figures/README-example1-2.png" width="100%" />
@@ -45,7 +45,7 @@ limnoPD<-multiareaPD(limnodata,limnotree)
 ``` r
 data("contodata")
 data("contotree")
-contoPD<-multiareaPD(contodata,contotree)
+contoPD<-multiareaPD(contodata[1:5,],contotree)
 ```
 
 <img src="man/figures/README-example1-3.png" width="100%" />
@@ -53,32 +53,33 @@ contoPD<-multiareaPD(contodata,contotree)
 ``` r
 data("latidata")
 data("latitree")
-latiPD<-multiareaPD(latidata,latitree)
+latiPD<-multiareaPD(latidata[1:5,],latitree)
 ```
 
 <img src="man/figures/README-example1-4.png" width="100%" />
 
 ``` r
-#complementary PD calculation for a set of areas given a phylogeny #(in red) and a selected area (LCL, in green)
-homoPDcomp<-compareaPD(homodata,homotree,LCL)
+#complementary PD calculation for a set of areas given a phylogeny
+#(in red) and a selected area (LCL, in green)
+homoPDcomp<-compareaPD(homodata[1:5,],homotree,LCL)
 ```
 
 <img src="man/figures/README-example2-1.png" width="100%" />
 
 ``` r
-limnoPDcomp<-compareaPD(limnodata,limnotree,LCL)
+limnoPDcomp<-compareaPD(limnodata[1:5,],limnotree,LCL)
 ```
 
 <img src="man/figures/README-example2-2.png" width="100%" />
 
 ``` r
-contoPDcomp<-compareaPD(contodata,contotree,LCL)
+contoPDcomp<-compareaPD(contodata[1:5,],contotree,LCL)
 ```
 
 <img src="man/figures/README-example2-3.png" width="100%" />
 
 ``` r
-latiPDcomp<-compareaPD(latidata,latitree,LCL)
+latiPDcomp<-compareaPD(latidata[1:5,],latitree,LCL)
 ```
 
 <img src="man/figures/README-example2-4.png" width="100%" />
