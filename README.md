@@ -54,7 +54,7 @@ latiPD<-multiareaPD(latidata[1:5,],latitree)
 <img src="man/figures/README-example1-4.png" width="100%" />
 
 ``` r
-#complementary PD calculation for a set of areas given a phylogeny
+#complementarity PD calculation for a set of areas given a phylogeny
 #(in red) and a selected area (LCL, in green)
 homoPDcomp<-compareaPD(homodata[1:5,],homotree,LCL)
 ```

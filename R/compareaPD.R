@@ -2,31 +2,31 @@
 #'
 #' @param x dataframe containing the assignment of samples (rows) to areas (columns)
 #' @param phy phylogenetic tree(s) of class phylo or multiPhylo
-#' @param area name of selected area to measure complementary phylogenetic diversity
+#' @param area name of selected area to measure complementarity phylogenetic diversity
 #' of the other areas in the set
 #' @param plot logical value indicating whether to plot the input tree. Defaults to
 #' plot = TRUE unless more than one input tree is provided.
 #'
 #' @details
-#' compareaPD calculates the complementary phylogenetic diversity of an area given a
+#' compareaPD calculates the complementarity phylogenetic diversity of an area given a
 #' selected area from the set. When there is a single input tree, the function plots
-#' the branches used for calculating the complementary PD of a given area (in red)
+#' the branches used for calculating the complementarity PD of a given area (in red)
 #' and the branches representing the PD of the selected area (in green). Currently,
 #' the function is implemented to deal with five areas only.
 #'
 #' @return
-#' An object of class “vector” or "matrix" containing the complementary phylogenetic
+#' An object of class “vector” or "matrix" containing the complementarity phylogenetic
 #' diversity values for each area and for all combinations of areas given all input
 #' trees.
-#' A plot showing the branches used for calculating the complementary PD of
+#' A plot showing the branches used for calculating the complementarity PD of
 #' a given area (in red) and the branches representing the PD of the selected
-#' area (in green). The complementary PD value is given in the title of each
+#' area (in green). The complementarity PD value is given in the title of each
 #' plot.
 #'
 #' @export
 #'
 #' @examples
-#' #complementary PD calculation for a set of areas given a phylogeny and
+#' #complementarity PD calculation for a set of areas given a phylogeny and
 #' #a selected area
 #' data("homodata")
 #' data("homotree")
