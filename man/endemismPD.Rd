@@ -10,6 +10,9 @@ endemismPD(x, phy, plot = T)
 \item{x}{dataframe containing the assignment of samples (rows) to areas (columns)}
 
 \item{phy}{phylogenetic tree(s) of class phylo or multiPhylo}
+
+\item{plot}{logical value indicating whether to plot the input tree. Defaults to
+plot = TRUE unless more than one input tree is provided.}
 }
 \value{
 An object of class “vector” or "matrix" containing the endemism phylogenetic

@@ -2,7 +2,9 @@
 #'
 #' @param x dataframe containing the assignment of samples (rows) to areas (columns)
 #' @param phy phylogenetic tree(s) of class phylo or multiPhylo
-#'
+#' @param plot logical value indicating whether to plot the input tree. Defaults to
+#' plot = TRUE unless more than one input tree is provided.
+
 #' @details
 #' endemismPD calculates the endemism phylogenetic diversity of an area given the
 #' other areas in the set. When there is a single input tree, the function plots

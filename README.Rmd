@@ -19,11 +19,11 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of areaPD is to calculate phylogenetic diversity (PD)
-for a set of geographic areas, calculating complementarity PD 
-given a selected area, and constructing a Venn's diagram of PD 
-within and between areas, given one or more phylogenetic trees 
-and an assignment of samples (e.g., alleles, species, etc.) to 
-areas.
+for a set of geographic areas, calculating endemism PD for the
+set of areas, calculating complementarity PD given a selected 
+area, and constructing a Venn's diagram of PD within and between 
+areas, given one or more phylogenetic trees and an assignment of 
+samples (e.g., alleles, species, etc.) to areas.
 
 ## Installation
 
@@ -41,14 +41,8 @@ library(areaPD)
 data("homodata")
 data("homotree")
 homoPD<-multiareaPD(homodata[1:5,],homotree)
-data("limnodata")
-data("limnotree")
 limnoPD<-multiareaPD(limnodata[1:5,],limnotree)
-data("contodata")
-data("contotree")
 contoPD<-multiareaPD(contodata[1:5,],contotree)
-data("latidata")
-data("latitree")
 latiPD<-multiareaPD(latidata[1:5,],latitree)
 ```
 
@@ -56,12 +50,14 @@ latiPD<-multiareaPD(latidata[1:5,],latitree)
 #complementary PD calculation for a set of areas given a phylogeny
 #(in red) and a selected area (LCL, in green)
 homoPDcomp<-compareaPD(homodata[1:5,],homotree,LCL)
-limnoPDcomp<-compareaPD(limnodata[1:5,],limnotree,LCL)
-contoPDcomp<-compareaPD(contodata[1:5,],contotree,LCL)
-latiPDcomp<-compareaPD(latidata[1:5,],latitree,LCL)
 ```
 
 ```{r example3}
+#endemism PD calculation for a set of areas given a phylogeny
+homoPDend<-endemismPD(homodata[1:5,],homotree)
+```
+
+```{r example4}
 #drawing a Venn's diagram for a set of five areas given four
 #different phylogenetic trees
 vennout<-makeVennPD(list(homoPD,limnoPD,contoPD,latiPD))

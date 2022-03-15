@@ -8,9 +8,10 @@ Authors@R:
            email = "arley.camargo@gmail.com",
            comment = c(ORCID = "0000-0001-9082-6348"))
 Description: The package areaPD contains functions for calculating
-  phylogenetic diversity (PD) for a set of geographic areas, calculating
-  complementarity PD given a selected area, and constructing a Venn's 
-  diagram of PD within and between areas, given a phylogenetic tree and 
+  phylogenetic diversity (PD) for a set of geographic areas, the
+  complementarity PD given a selected area, the endemism PD for a
+  set of geographic areas, and for constructing a Venn's diagram 
+  of PD within and between areas, given a phylogenetic tree and 
   an assignment of samples (e.g., alleles, species, etc.) to areas.
 License: MIT + file LICENSE
 Encoding: UTF-8
