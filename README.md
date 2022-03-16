@@ -6,12 +6,11 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of areaPD is to calculate phylogenetic diversity (PD) for a set
-of geographic areas, calculating endemism PD for the set of areas,
-calculating complementarity PD given a selected area, and constructing a
-Venn’s diagram of PD within and between areas, given one or more
-phylogenetic trees and an assignment of samples (e.g., alleles, species,
-etc.) to areas.
+The functions in areaPD can calculate phylogenetic diversity (PD) and
+endemism PD for a set of geographic areas, the complementarity PD given
+a selected area, and constructing a Venn’s diagram of PD within and
+between areas, given one or more phylogenetic trees and an assignment of
+samples (e.g., alleles, species, etc.) to areas.
 
 ## Installation
 
@@ -75,3 +74,21 @@ vennout<-makeVennPD(list(homoPD,limnoPD,contoPD,latiPD))
 ```
 
 <img src="man/figures/README-example4-1.png" width="100%" />
+
+## References
+
+Faith, P. D. (1992) Conservation evaluation and phylogenetic diversity.
+Biological Conservation, 61, 1-10.
+
+Faith, P. D. (2016) The PD phylogenetic diversity framework: linking
+evolutionary history to feature diversity for biodiversity conservation.
+In: Biodiversity Conservation and Phylogenetic Systematics, Topics in
+Biodiversity and Conservation, 14, DOI 10.1007/978-3-319-22461-9_3.
+
+Faith, P. D., Reid, C. A. M., and Hunter, J. (2004) Integrating
+phylogenetic diversity, complementarity, and endemism for conservation
+assessment. Conservation Biology, 18, 255-261.
+
+Moritz, C. and Faith, D. P. (1998) Comparative phylogeography and the
+identification of genetically divergent areas for conservation.
+Molecular Ecology, 7, 419-429.
