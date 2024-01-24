@@ -75,6 +75,10 @@ Faith, P. D., Reid, C. A. M., and Hunter, J. (2004) Integrating
 phylogenetic diversity, complementarity, and endemism for
 conservation assessment. Conservation Biology, 18, 255-261.
 
-Moritz, C. and Faith, D. P. (1998) Comparative phylogeography
+Moritz, C., and Faith, D. P. (1998) Comparative phylogeography
 and the identification of genetically divergent areas for
 conservation. Molecular Ecology, 7, 419-429.
+
+## Citation
+
+Camargo, A., Elgue, E., Fernandez, F., Lima, L., and Maneyro, R. (2023) Conservation prioritization of the northern hills of Uruguay based on the intra-specific phylogenetic diversity of frogs and lizards. Journal for Nature Conservation, 75, 126468. doi: 10.1016/j.jnc.2023.126468 

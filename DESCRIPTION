@@ -1,5 +1,5 @@
 Package: areaPD
-Title: Phylogenetic diversity measures of geograhic areas
+Title: areaPD: Phylogenetic diversity of geographic areas
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Arley",
